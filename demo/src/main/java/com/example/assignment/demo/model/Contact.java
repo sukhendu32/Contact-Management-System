@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
 
 @Entity
@@ -14,12 +15,12 @@ public class Contact {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer contactId;
 	
-	@Nonnull
+	@Nonnull @NotEmpty
 	private String name;
 	
 	private String address;
 	
-	@Nonnull @Pattern(regexp = "[0-9]{10}")
+	@Nonnull @NotEmpty @Pattern(regexp = "[0-9]{10}")
 	private String phoneNumber;
 	
 	private String email;
