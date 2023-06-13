@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.service.annotation.GetExchange;
 
+import com.example.assignment.demo.exception.ContactException;
 import com.example.assignment.demo.model.Contact;
 import com.example.assignment.demo.service.ContactServiceImpl;
 
@@ -22,7 +23,7 @@ public class ContactController {
 	private ContactServiceImpl contactService;
 	
 	@PostMapping("/register")
-	public String registerContact(@RequestBody Contact contact){
+	public String registerContact(@RequestBody Contact contact) throws ContactException{
 	   
 		return contactService.registerContact(contact); 	
 	}
@@ -34,7 +35,7 @@ public class ContactController {
 	}
 	
 	@DeleteMapping("/contacts/{contactId}")
-	public String deleteContact(@PathVariable("contactId") Integer contactId) {
+	public String deleteContact(@PathVariable("contactId") Integer contactId) throws ContactException {
 		
 		return contactService.deleteContact(contactId);
 	}

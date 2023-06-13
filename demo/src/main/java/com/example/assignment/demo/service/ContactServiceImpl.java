@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.assignment.demo.exception.ContactException;
 import com.example.assignment.demo.model.Contact;
 import com.example.assignment.demo.repository.ContactRepository;
 
@@ -16,7 +17,7 @@ public class ContactServiceImpl implements ContactService {
 	private ContactRepository contactRepo;
 
 	@Override
-	public String registerContact(Contact contact) {
+	public String registerContact(Contact contact)throws ContactException {
 		
 		String number = contact.getPhoneNumber();
 		Optional<Contact> numberExist = contactRepo.findByphoneNumber(number);
@@ -27,7 +28,7 @@ public class ContactServiceImpl implements ContactService {
 	    	   return "Contact registered secessfully!";
 	       }
 	       
-	       return "Contact not registered, please provide a unique Phone number";
+	       throw new ContactException("Contact not registered, please provide a unique Phone number");
 	}
 
 	@Override
@@ -37,7 +38,7 @@ public class ContactServiceImpl implements ContactService {
 	}
 
 	@Override
-	public String deleteContact(Integer contactId) {
+	public String deleteContact(Integer contactId)throws ContactException {
 		
 		Optional<Contact> contact =  contactRepo.findById(contactId);
 		
@@ -47,6 +48,6 @@ public class ContactServiceImpl implements ContactService {
 			return "contact deleted secessfully!";
 		}
 		
-		return "please provide a valid contactId";
+		throw new ContactException("please provide a valid contactId");
 	}
 }
