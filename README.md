@@ -1,9 +1,9 @@
 # Contact-Management-System
 
-Database uses - Mysql
-Configration needed in application.properties to establish the connection.
-spring.datasource.username=root
-spring.datasource.password=root
+### Database uses - Mysql
+- Configration needed in application.properties to establish the connection.
+- spring.datasource.username=root
+- spring.datasource.password=root
 
 This a simple REST-API for managing contact :
 
