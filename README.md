@@ -18,11 +18,13 @@ This a simple REST-API for managing contact :
 - Method: POST
 - URL: `http://localhost:"+port+"/contactManagementSystem/register`
 - Description :Register a new contacts only if the PhoneNumber provides is Unique and Name, PhoneNumber field is present
+- Throws Custome made ContactException if PhoneNumber is not Unique. 
 
 ### Delete a Contacts
 - Method: Delete
 - URL: `http://localhost:"+port+"/contactManagementSystem/contacts/{contactId}`
-- Description :Delete a contact from the database with the help of contsctId(Primary Key) only if contactKey is present.
+- Description :Delete a contact from the database with the help of contactId(Primary Key) only if contactKey is present.
+- Throws Custome made ContactException if contactId is not Present in the database.
 
 
 ### Test cases :
