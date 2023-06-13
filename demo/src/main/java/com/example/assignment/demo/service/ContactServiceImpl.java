@@ -18,8 +18,8 @@ public class ContactServiceImpl implements ContactService {
 	@Override
 	public String registerContact(Contact contact) {
 		
-		 String number = contact.getPhoneNumber();
-	     Optional<Contact> numberExist = contactRepo.findByphoneNumber(number);
+		String number = contact.getPhoneNumber();
+		Optional<Contact> numberExist = contactRepo.findByphoneNumber(number);
 	       
 	       if(!numberExist.isPresent()) {
 	    	   contactRepo.save(contact);
