@@ -25,7 +25,7 @@ This a simple REST-API for managing contact :
 - Description :Delete a contact from the database with the help of contsctId(Primary Key) only if contactKey is present.
 
 
-###Test cases also provides for
+### Test cases :
 - testcontactCreation - Checks if a contact is registered with the help of primary key which is auto-generated.
 - testDeleteContact - Detete a contact with the help of contactId and check it with the help of status code.
 - testGetAllUsers - Checks if the list returened is not-empty(assuming some contact are present already) and checks for the status code. 
